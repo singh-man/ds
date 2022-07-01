@@ -2,13 +2,53 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class LongestPalindromicSubstring {
+    // This function prints the longest palindrome substring (LPS) of str[]. It also returns the length of the longest
+    // palindrome
+    int longestPalSubstring(String str) {
+        int n = str.length();
+        if (n < 2) return n; // if string is empty then size will be 0.
+        // if n==1 then, answer will be 1(single
+        // character will always palindrome)
+
+        int maxLength = 1, start = 0;
+        int low, high;
+        for (int i = 0; i < n; i++) {
+            low = i - 1;
+            high = i + 1;
+            while (high < n && str.charAt(high) == str.charAt(i)) //increment 'high'
+                high++;
+
+            while (low >= 0 && str.charAt(low) == str.charAt(i)) // decrement 'low'
+                low--;
+
+            while (low >= 0 && high < n && str.charAt(low) == str.charAt(high)) {
+                low--;
+                high++;
+            }
+
+            int length = high - low - 1;
+            if (maxLength < length) {
+                maxLength = length;
+                start = low + 1;
+            }
+        }
+        System.out.print("Longest palindrome substring is: ");
+        System.out.println(str.substring(start, start + maxLength));
+        return maxLength;
+    }
+
+    // Driver program to test above function
+    @Test
+    public void testOptimize() {
+        String str = "forgeeksskeegfor";
+        System.out.println("Length is: " + longestPalSubstring(str));
+    }
 
     boolean isPalindrome(String str, int start, int end) {
         if (start >= end) return true;
         if (str.charAt(start) == str.charAt(end)) {
             return isPalindrome(str, start + 1, end - 1);
-        } else
-            return false;
+        } else return false;
     }
 
     // Function to print a subString str[low..high]
@@ -19,7 +59,7 @@ public class LongestPalindromicSubstring {
 
     // This function prints the longest palindrome subString
     // It also returns the length of the longest palindrome
-    int longestPalSubstr(String str) {
+    int longestPalSubstrBruteForce(String str) {
         // get length of input String
         int n = str.length();
 
@@ -49,7 +89,7 @@ public class LongestPalindromicSubstring {
     @Test
     public void test() {
         String str = "forgeeksskeegfor";
-        System.out.println("Length is: " + longestPalSubstr(str));
+        System.out.println("Length is: " + longestPalSubstrBruteForce(str));
     }
 
     @Test
