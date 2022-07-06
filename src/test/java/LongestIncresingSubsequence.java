@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class LongestIncresingSubsequence {
 
-    static int lis(int arr[], int n) {
+    int lis(int arr[], int n) {
         int lis[] = new int[n];
         int i, j, max = 0;
 
