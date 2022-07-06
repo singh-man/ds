@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.*;
@@ -10,6 +11,12 @@ public class CodeSamples {
      */
     public int countStringInString(String target, String toCount) {
         return target.split(toCount, -1).length - 1;
+    }
+
+    @Test
+    public void testCountStringInString() {
+        Assert.assertEquals(2, countStringInString("isnotis", "is"));
+        Assert.assertEquals(1, countStringInString("isnotis", "not"));
     }
 
     /**
@@ -27,6 +34,19 @@ public class CodeSamples {
             }
             list.add(arr[i]);
         }
+    }
+
+    @Test
+    public void testRemoveRangeFromList() {
+        List list = new ArrayList();
+        list.add("0");list.add("1");list.add("2");list.add("3");list.add("4");list.add("5");list.add("6");list.add("7");
+        list.add("8");list.add("9");
+        int startIndex = 5, endIndex = 7;
+        System.out.println("Removing a range of values from this list ");
+        list.forEach(System.out::print);
+        removeRangeFromList(list, startIndex, endIndex);
+        System.out.println("After removing from index : " + startIndex + " to " + endIndex);
+        list.forEach(System.out::print);
     }
 
     /**
@@ -61,6 +81,16 @@ public class CodeSamples {
             }
         }
         return chessPieces;
+    }
+
+    @Test
+    public void testMissingChessPieces() {
+        String[][] chessBoard = {{null, "W_KI"}, {}, {}, {}, {}, {}, {}, {}};
+        Map<String, Integer> map = missingChessPieces(chessBoard);
+        Set<String> keySet = map.keySet();
+        for (String s : keySet) {
+            System.out.println(s + ":" + map.get(s));
+        }
     }
 
     /**

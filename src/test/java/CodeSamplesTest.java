@@ -19,8 +19,6 @@ import static org.junit.Assert.assertTrue;
 
 public class CodeSamplesTest {
 
-    private List list;
-    private int startIndex, endIndex;
     private String testString;
     private Map charMapInString;
     private CodeSamples cs;
@@ -29,38 +27,9 @@ public class CodeSamplesTest {
     public void setUp() throws Exception {
         cs = new CodeSamples();
 
-        list = new ArrayList();
-        list.add("0");
-        list.add("1");
-        list.add("2");
-        list.add("3");
-        list.add("4");
-        list.add("5");
-        list.add("6");
-        list.add("7");
-        list.add("8");
-        list.add("9");
-        startIndex = 5;
-        endIndex = 7;
-
         testString = "abtc^^abc11451$rt$a^";
         charMapInString = new TreeMap();
 
-    }
-
-    @Test
-    public void testRemoveRangeFromList() {
-        System.out.println("Removing a range of values from this list ");
-        printList(list);
-        cs.removeRangeFromList(list, startIndex, endIndex);
-        System.out.println("\nAfter removing from index : " + startIndex + " to " + endIndex);
-        printList(list);
-    }
-
-    private void printList(List list) {
-        for (Object o : list) {
-            System.out.print(o.toString() + " ");
-        }
     }
 
     /**
@@ -76,16 +45,6 @@ public class CodeSamplesTest {
         while (it.hasNext()) {
             Object key = it.next();
             System.out.println(key + "    : " + charMapInString.get(key));
-        }
-    }
-
-    @Test
-    public void testMissingChessPieces() {
-        String[][] chessBoard = {{null, "W_KI"}, {}, {}, {}, {}, {}, {}, {}};
-        Map<String, Integer> map = cs.missingChessPieces(chessBoard);
-        Set<String> keySet = map.keySet();
-        for (String s : keySet) {
-            System.out.println(s + ":" + map.get(s));
         }
     }
 
@@ -239,13 +198,6 @@ public class CodeSamplesTest {
             }
         });
     }
-
-    @Test
-    public void testCountStringInString() {
-        Assert.assertEquals(2, cs.countStringInString("isnotis", "is"));
-        Assert.assertEquals(1, cs.countStringInString("isnotis", "not"));
-    }
-
 
     interface Searchable {
         boolean test(String car);
