@@ -68,7 +68,7 @@ public class CodeSamples {
      * @return
      */
     public Map<String, Integer> missingChessPieces(String[][] chessBoard) {
-        Map<String, Integer> chessPieces = new HashMap<String, Integer>();
+        Map<String, Integer> chessPieces = new HashMap<>();
         for (int i = 0; i < chessBoard.length; i++) {
             for (int j = 0; j < chessBoard[i].length; j++) {
                 if (chessBoard[i][j] != null) {
