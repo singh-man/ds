@@ -25,9 +25,9 @@ public class CountingSort implements ISort {
 
     private <T extends Comparable<T>> void CS(T[] array) {
 
-        Map<T, Integer> frequency = new TreeMap<T, Integer>();
+        Map<T, Integer> frequency = new TreeMap<>();
         // The final output array
-        ArrayList<T> sortedArray = new ArrayList<T>();
+        ArrayList<T> sortedArray = new ArrayList<>();
 
         // Counting the frequency of @param array elements
         for (T t : array) {

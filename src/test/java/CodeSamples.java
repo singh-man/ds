@@ -136,7 +136,7 @@ public class CodeSamples {
     @Deprecated
     public List<Integer> calculatePrimeNumbers_v1(int n) {
         boolean[] isPrimeNumber = new boolean[n + 1]; // boolean defaults to false
-        List<Integer> primes = new ArrayList<Integer>();
+        List<Integer> primes = new ArrayList<>();
         for (int i = 2; i < n; i++) {
             isPrimeNumber[i] = true;
         }

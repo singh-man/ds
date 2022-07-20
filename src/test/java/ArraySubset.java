@@ -33,11 +33,11 @@ public class ArraySubset {
     @Test
     public void myTest() {
         Integer[] myints = new Integer[]{2, 4, 1};
-        List<Integer> v = new ArrayList<Integer>();
+        List<Integer> v = new ArrayList<>();
         for (Integer i : myints) {
             v.add(i);
         }
-        List<HashSet<Integer>> subsets = new ArrayList<HashSet<Integer>>();
+        List<HashSet<Integer>> subsets = new ArrayList<>();
 
         get_all_subsets(v, subsets);
 

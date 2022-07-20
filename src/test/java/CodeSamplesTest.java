@@ -61,32 +61,27 @@ public class CodeSamplesTest {
                 this.name = name;
             }
         }
-        List<Employee> employeeList = new ArrayList<Employee>();
-        employeeList.add(new Employee(18, "man"));
-        employeeList.add(new Employee(10, "man"));
-        employeeList.add(new Employee(11, "man1"));
-        employeeList.add(new Employee(12, "man2"));
-        employeeList.add(new Employee(14, "man3"));
-        employeeList.add(new Employee(10, "man"));
-        employeeList.add(new Employee(10, "man5"));
+        List<Employee> employeeList = List.of(new Employee(18, "man"),
+                new Employee(10, "man"),
+                new Employee(11, "man1"),
+                new Employee(12, "man2"),
+                new Employee(14, "man3"),
+                new Employee(10, "man"),
+                new Employee(10, "man5"));
 
-        Collections.sort(employeeList, new Comparator<Employee>() {
+        Collections.sort(employeeList, (o1, o2) -> {
 
-            public int compare(Employee o1, Employee o2) {
+            String s1 = o1.name;
+            String s2 = o2.name;
+            int sComp = s1.compareTo(s2);
 
-                String s1 = o1.name;
-                String s2 = o2.name;
-                int sComp = s1.compareTo(s2);
-
-                if (sComp != 0) {
-                    return sComp;
-                } else {
-                    Integer x1 = o1.age;
-                    Integer x2 = o2.age;
-                    return x1.compareTo(x2);
-                }
+            if (sComp != 0) {
+                return sComp;
+            } else {
+                Integer x1 = o1.age;
+                Integer x2 = o2.age;
+                return x1.compareTo(x2);
             }
-
         });
 
         for (Employee e : employeeList) {
@@ -145,7 +140,7 @@ public class CodeSamplesTest {
      * @throws IOException
      */
     public void testListPrimeNumbersInRange() throws IOException {
-        final List<Integer> primesList = new LinkedList<Integer>();
+        final List<Integer> primesList = new LinkedList<>();
         int i = 1;
         int end = Integer.MAX_VALUE - 1000;
         while (i <= end) {
