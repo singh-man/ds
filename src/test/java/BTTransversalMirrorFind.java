@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -5,7 +6,7 @@ import org.junit.Test;
  *   3       10    |    10       3
  * 6  5    9  15   |  15  9    5  6
  */
-public class BTTraversalAndMirror {
+public class BTTransversalMirrorFind {
 
     BTNode mirror(BTNode node) {
         if (node == null) return node;
@@ -57,6 +58,29 @@ public class BTTraversalAndMirror {
         printPreorder(node.left);
         printPreorder(node.right);
     }
+
+    int findCount(BTNode node, int find, int count) {
+        if (node == null) return count;
+        if (node.data == find) count++;
+        count = findCount(node.left, find, count);
+        count = findCount(node.right, find, count);
+        return count;
+    }
+
+    @Test
+    public void testCountInBT() {
+        BTNode root = new BTNode(1,
+                new BTNode(3,
+                        new BTNode(6, null, null),
+                        new BTNode(5, null, null)),
+                new BTNode(6,
+                        new BTNode(9, null, null),
+                        new BTNode(6, null, null))
+        );
+        Assert.assertEquals(findCount(root, 6, 0), 3);
+        Assert.assertEquals(findCount(root, 12, 0), 0);
+    }
+
 
     public class BTNode {
         int data;

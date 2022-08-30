@@ -9,7 +9,7 @@ import java.util.Stack;
 public class BracesCheck {
 
     /**
-     * This can handle text in between as well
+     * This can not handle text in between
      */
     public boolean bracesWithText(String text) {
         if (text.length() % 2 != 0) return false;
@@ -33,6 +33,7 @@ public class BracesCheck {
     @Test
     public void testBracesWithText() {
         Assert.assertEquals(true, bracesWithText("[aa[[]]cc]"));
+        Assert.assertEquals(false, bracesWithText("[aa[x[b]y]cc]"));
         Assert.assertEquals(false, bracesWithText("[a{]c]"));
         Assert.assertEquals(false, bracesWithText("[[[[}}[]]]"));
         Assert.assertEquals(false, bracesWithText("[{}()]")); // can not cover this
