@@ -1,5 +1,5 @@
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
@@ -15,8 +15,8 @@ public class CodeSamples {
 
     @Test
     public void testCountStringInString() {
-        Assert.assertEquals(2, countStringInString("isnotis", "is"));
-        Assert.assertEquals(1, countStringInString("isnotis", "not"));
+        Assertions.assertEquals(2, countStringInString("isnotis", "is"));
+        Assertions.assertEquals(1, countStringInString("isnotis", "not"));
     }
 
     /**
@@ -38,9 +38,7 @@ public class CodeSamples {
 
     @Test
     public void testRemoveRangeFromList() {
-        List list = new ArrayList();
-        list.add("0");list.add("1");list.add("2");list.add("3");list.add("4");list.add("5");list.add("6");list.add("7");
-        list.add("8");list.add("9");
+        List list = List.of("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
         int startIndex = 5, endIndex = 7;
         System.out.println("Removing a range of values from this list ");
         list.forEach(System.out::print);

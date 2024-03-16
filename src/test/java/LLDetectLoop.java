@@ -1,16 +1,16 @@
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class LLDetectLoop {
 
     public boolean cycle(Node a) {
         if (a == null) return false;
-        Node slow , fast;
+        Node slow, fast;
         slow = fast = a;
-        for(;slow.next != null && fast.next != null && fast.next.next !=null;) {
+        for (; slow.next != null && fast.next != null && fast.next.next != null; ) {
             slow = slow.next;
             fast = fast.next.next;
-            if(slow == fast) return true;
+            if (slow == fast) return true;
         }
         return false;
     }
@@ -24,14 +24,18 @@ public class LLDetectLoop {
         Node e = new Node(50, null);
         Node f = new Node(60, null);
         Node g = new Node(70, null);
-        a.next = b; b.next = c; c.next = d; d.next = e;
-        e.next = f; f.next = g;
+        a.next = b;
+        b.next = c;
+        c.next = d;
+        d.next = e;
+        e.next = f;
+        f.next = g;
         g.next = c; //adding loop
 
-        Assert.assertEquals(true, cycle(a));
+        Assertions.assertEquals(true, cycle(a));
 
         g.next = null; // removing loop
-        Assert.assertEquals(false, cycle(a));
+        Assertions.assertEquals(false, cycle(a));
 
     }
 

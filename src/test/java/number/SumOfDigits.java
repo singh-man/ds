@@ -1,7 +1,7 @@
 package number;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class SumOfDigits {
 
@@ -12,9 +12,9 @@ public class SumOfDigits {
 
     @Test
     public void testMultiply() {
-        Assert.assertEquals(10, sumOfAllDigits(1234));
-        Assert.assertEquals(23, sumOfAllDigits(1598));
-        Assert.assertNotEquals(21, sumOfAllDigits(1598));
+        Assertions.assertEquals(10, sumOfAllDigits(1234));
+        Assertions.assertEquals(23, sumOfAllDigits(1598));
+        Assertions.assertNotEquals(21, sumOfAllDigits(1598));
     }
 
 }

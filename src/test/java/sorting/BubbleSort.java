@@ -1,6 +1,6 @@
 package sorting;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Created by M.Singh on 07/02/2018.

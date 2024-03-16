@@ -1,5 +1,5 @@
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,9 +28,9 @@ public class PaintLineInSegments {
     @Test
     public void test() {
         Map<Integer, Boolean> line = new HashMap<>();
-        Assert.assertEquals(6, paint(new int[]{4, 10}, line));
-        Assert.assertEquals(3, paint(new int[]{7, 13}, line));
-        Assert.assertEquals(10, paint(new int[]{20, 30}, line));
-        Assert.assertEquals(20, paint(new int[]{1, 40}, line));
+        Assertions.assertEquals(6, paint(new int[]{4, 10}, line));
+        Assertions.assertEquals(3, paint(new int[]{7, 13}, line));
+        Assertions.assertEquals(10, paint(new int[]{20, 30}, line));
+        Assertions.assertEquals(20, paint(new int[]{1, 40}, line));
     }
 }

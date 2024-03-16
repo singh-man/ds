@@ -1,5 +1,5 @@
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  *       1
@@ -28,10 +28,10 @@ public class BTIsMirror {
                         new BTNode(5, null, null),
                         new BTNode(4, null, null))
         );
-        Assert.assertEquals(true, isMirror(root, root));
+        Assertions.assertEquals(true, isMirror(root, root));
 
         root.left.left.left = new BTNode(6, null, null);
-        Assert.assertEquals(false, isMirror(root, root));
+        Assertions.assertEquals(false, isMirror(root, root));
     }
 
     public class BTNode {

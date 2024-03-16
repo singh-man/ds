@@ -1,5 +1,5 @@
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
@@ -23,7 +23,7 @@ public class BracesCheck {
         int size = open.size();
         for (int i = 0; i < size; i++) {
             String brks = open.pop().toString() + close.poll().toString();
-            if (brks.equals("[]") || brks.equals("{}") || brks.equals("()") )
+            if (brks.equals("[]") || brks.equals("{}") || brks.equals("()"))
                 continue;
             else return false;
         }
@@ -32,12 +32,12 @@ public class BracesCheck {
 
     @Test
     public void testBracesWithText() {
-        Assert.assertEquals(true, bracesWithText("[aa[[]]cc]"));
-        Assert.assertEquals(false, bracesWithText("[aa[x[b]y]cc]"));
-        Assert.assertEquals(false, bracesWithText("[a{]c]"));
-        Assert.assertEquals(false, bracesWithText("[[[[}}[]]]"));
-        Assert.assertEquals(false, bracesWithText("[{}()]")); // can not cover this
-        Assert.assertEquals(false, bracesWithText("[{}]}"));
+        Assertions.assertEquals(true, bracesWithText("[aa[[]]cc]"));
+        Assertions.assertEquals(false, bracesWithText("[aa[x[b]y]cc]"));
+        Assertions.assertEquals(false, bracesWithText("[a{]c]"));
+        Assertions.assertEquals(false, bracesWithText("[[[[}}[]]]"));
+        Assertions.assertEquals(false, bracesWithText("[{}()]")); // can not cover this
+        Assertions.assertEquals(false, bracesWithText("[{}]}"));
     }
 
     /**
@@ -70,11 +70,11 @@ public class BracesCheck {
 
     @Test
     public void testBracesWithTextUsingStack() {
-        Assert.assertEquals(true, bracesWithTextUsingStack("[aa[[]]cc]"));
-        Assert.assertEquals(false, bracesWithTextUsingStack("[a{]c]"));
-        Assert.assertEquals(false, bracesWithTextUsingStack("[[[[}}[]]]"));
-        Assert.assertEquals(true, bracesWithTextUsingStack("[{}()]")); // can cover this
-        Assert.assertEquals(false, bracesWithTextUsingStack("[{}]}"));
+        Assertions.assertEquals(true, bracesWithTextUsingStack("[aa[[]]cc]"));
+        Assertions.assertEquals(false, bracesWithTextUsingStack("[a{]c]"));
+        Assertions.assertEquals(false, bracesWithTextUsingStack("[[[[}}[]]]"));
+        Assertions.assertEquals(true, bracesWithTextUsingStack("[{}()]")); // can cover this
+        Assertions.assertEquals(false, bracesWithTextUsingStack("[{}]}"));
     }
 
     /**
@@ -94,11 +94,11 @@ public class BracesCheck {
 
     @Test
     public void testBracesOnly() {
-        Assert.assertNotEquals(true, bracesOnly("[aa[[]]cc]"));
-        Assert.assertEquals(true, bracesOnly("[[[]]]"));
-        Assert.assertEquals(false, bracesOnly("[{]]"));
-        Assert.assertEquals(false, bracesOnly("[{}()]")); // can not cover this
-        Assert.assertNotEquals(true, bracesOnly("[[[[]]]"));
-        Assert.assertEquals(false, bracesOnly("[{}]}"));
+        Assertions.assertNotEquals(true, bracesOnly("[aa[[]]cc]"));
+        Assertions.assertEquals(true, bracesOnly("[[[]]]"));
+        Assertions.assertEquals(false, bracesOnly("[{]]"));
+        Assertions.assertEquals(false, bracesOnly("[{}()]")); // can not cover this
+        Assertions.assertNotEquals(true, bracesOnly("[[[[]]]"));
+        Assertions.assertEquals(false, bracesOnly("[{}]}"));
     }
 }

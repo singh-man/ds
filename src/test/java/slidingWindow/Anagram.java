@@ -1,7 +1,7 @@
 package slidingWindow;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,7 +42,7 @@ public class Anagram {
 
     @Test
     public void test() {
-        Assert.assertEquals(true, isAnagram("cat", "act"));
-        Assert.assertEquals(false, isAnagram("cat", "abt"));
+        Assertions.assertEquals(true, isAnagram("cat", "act"));
+        Assertions.assertEquals(false, isAnagram("cat", "abt"));
     }
 }

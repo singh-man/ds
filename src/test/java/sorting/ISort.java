@@ -1,7 +1,7 @@
 package sorting;
 
-import org.junit.Assert;
-import org.utils.timer.StopWatch;
+import org.junit.jupiter.api.Assertions;
+import xorg.utils.timer.StopWatch;
 
 import java.util.Arrays;
 
@@ -31,7 +31,7 @@ public interface ISort {
 
             sw.printConsole();
 
-            Assert.assertTrue(isSorted(data));
+            Assertions.assertTrue(isSorted(data));
         } catch (Exception e) {
             e.printStackTrace();
         }

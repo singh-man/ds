@@ -1,5 +1,5 @@
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * Input  : S = "abcab"
@@ -10,7 +10,7 @@ import org.junit.Test;
  * Out of the above substrings, there
  * are 7 substrings : a, abca, b, bcab,
  * c, a and b.
- *
+ * <p>
  * Input  : S = "aba"
  * Output : 4
  * The substrings are a, b, a and aba
@@ -41,8 +41,8 @@ public class SubstringsWithSameFirstAndLastCharacters {
 
     @Test
     public void test() {
-        Assert.assertEquals(7, countSubstringWithEqualEnds("abcab"));
-        Assert.assertEquals(21, countSubstringWithEqualEnds("abcabadaea"));
+        Assertions.assertEquals(7, countSubstringWithEqualEnds("abcab"));
+        Assertions.assertEquals(21, countSubstringWithEqualEnds("abcabadaea"));
     }
 
 }

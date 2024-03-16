@@ -1,5 +1,5 @@
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,7 +48,7 @@ public class FindKthPermutation {
         List<String> list = new ArrayList<>();
         permute(text, 0, text.length() - 1, list);
         List<Integer> collect = list.stream().map(e -> Integer.parseInt(e)).sorted().collect(Collectors.toList());
-        Assert.assertTrue(517 == collect.get(kth - 1));
+        Assertions.assertTrue(517 == collect.get(kth - 1));
         System.out.println("kth permutation is :: " + collect.get(kth - 1));
     }
 
@@ -89,7 +89,7 @@ public class FindKthPermutation {
     public void testCalc() {
         int kth = 3;
         List<Integer> calc = calc(new int[]{1, 5, 7});
-        Assert.assertTrue(517 == calc.get(kth - 1));
+        Assertions.assertTrue(517 == calc.get(kth - 1));
         System.out.println("kth permutation is : " + calc.get(kth - 1));
     }
 }

@@ -1,7 +1,7 @@
 package number;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.function.BiFunction;
 
@@ -17,8 +17,8 @@ public class DecimalToBinary {
 
     @Test
     public void testDecimalToBinary() {
-        Assert.assertEquals("1010", decimalToBinary(10, ""));
-        Assert.assertEquals("1010", toBinary.apply(10, ""));
+        Assertions.assertEquals("1010", decimalToBinary(10, ""));
+        Assertions.assertEquals("1010", toBinary.apply(10, ""));
     }
 
 }

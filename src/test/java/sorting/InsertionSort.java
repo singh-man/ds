@@ -1,6 +1,6 @@
 package sorting;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Created by M.Singh on 07/02/2018.
@@ -22,7 +22,7 @@ public class InsertionSort implements ISort {
         for (int i = 1; i < input.length; i++) {
             for (int j = i; j > 0; j--) {
                 if (input[j] < input[j - 1]) {
-                    swap(input, j, j-1);
+                    swap(input, j, j - 1);
                 }
             }
         }
@@ -36,9 +36,11 @@ public class InsertionSort implements ISort {
                 data[j + 1] = data[j];
             data[j + 1] = a;
         }
-        return  data;
+        return data;
     }
 
     @Test
-    public void test() { run(new InsertionSort()); }
+    public void test() {
+        run(new InsertionSort());
+    }
 }

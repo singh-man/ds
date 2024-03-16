@@ -1,7 +1,7 @@
 package number;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class AddOddValues {
 
@@ -16,8 +16,8 @@ public class AddOddValues {
 
     @Test
     public void testMultiply() {
-        Assert.assertEquals(4, addOdd(4));
-        Assert.assertEquals(16, addOdd(7));
+        Assertions.assertEquals(4, addOdd(4));
+        Assertions.assertEquals(16, addOdd(7));
     }
 
 }

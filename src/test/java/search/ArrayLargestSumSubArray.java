@@ -1,6 +1,6 @@
 package search;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * This represents Kadane's algorithm

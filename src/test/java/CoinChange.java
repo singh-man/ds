@@ -1,5 +1,5 @@
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.stream.Stream;
@@ -27,7 +27,7 @@ public class CoinChange {
     public void testMinCoinNeedNoDP() {
         int amount = 18;
         int[] coins = {1, 5, 7};
-        Assert.assertEquals(4, minCoinNeed(amount, coins));
+        Assertions.assertEquals(4, minCoinNeed(amount, coins));
     }
 
     /**
@@ -58,10 +58,10 @@ public class CoinChange {
         int[] coins = {1, 5, 7};
         int[] dp = new int[amount + 1];
         Arrays.fill(dp, -1);dp[0] = 0;
-        Assert.assertEquals(4, minCoinNeed(amount, coins, dp));
+        Assertions.assertEquals(4, minCoinNeed(amount, coins, dp));
         Stream.of(dp).forEach(System.out::println);
         amount = 11; coins = new int[]{1, 2, 5}; Arrays.fill(dp, -1);dp[0] = 0;
-        Assert.assertEquals(3, minCoinNeed(amount, coins, dp));
+        Assertions.assertEquals(3, minCoinNeed(amount, coins, dp));
         Stream.of(dp).forEach(System.out::println);
     }
 

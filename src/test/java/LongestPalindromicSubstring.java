@@ -1,5 +1,5 @@
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class LongestPalindromicSubstring {
     // This function prints the longest palindrome substring (LPS) of str[]. It also returns the length of the longest
@@ -95,10 +95,10 @@ public class LongestPalindromicSubstring {
     @Test
     public void testPalindrome() {
         String str = "aba";
-        Assert.assertTrue(isPalindrome(str, 0, str.length() - 1));
+        Assertions.assertTrue(isPalindrome(str, 0, str.length() - 1));
         str = "abaaba";
-        Assert.assertTrue(isPalindrome(str, 0, str.length() - 1));
+        Assertions.assertTrue(isPalindrome(str, 0, str.length() - 1));
         str = "abcaba";
-        Assert.assertFalse(isPalindrome(str, 0, str.length() - 1));
+        Assertions.assertFalse(isPalindrome(str, 0, str.length() - 1));
     }
 }

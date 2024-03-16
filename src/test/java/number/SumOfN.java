@@ -1,7 +1,7 @@
 package number;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.function.Function;
 
@@ -21,9 +21,9 @@ public class SumOfN {
 
     @Test
     public void testSumOfN() {
-        Assert.assertEquals(55, sumOfN(10));
-        Assert.assertEquals(Integer.valueOf(55), sumN.apply(10));
-        Assert.assertEquals(sumOfN(10), sumOfNConstTime(10));
+        Assertions.assertEquals(55, sumOfN(10));
+        Assertions.assertEquals(Integer.valueOf(55), sumN.apply(10));
+        Assertions.assertEquals(sumOfN(10), sumOfNConstTime(10));
     }
 
     @Test

@@ -1,7 +1,7 @@
 package number;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class Log {
 
@@ -15,7 +15,7 @@ public class Log {
 
     @Test
     public void testLog() {
-        Assert.assertEquals(3, log(10, 1000));
-        Assert.assertEquals(2, log(2, 4));
+        Assertions.assertEquals(3, log(10, 1000));
+        Assertions.assertEquals(2, log(2, 4));
     }
 }

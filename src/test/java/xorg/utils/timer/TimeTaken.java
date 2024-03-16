@@ -1,4 +1,4 @@
-package org.utils.timer;
+package xorg.utils.timer;
 
 public interface TimeTaken {
 

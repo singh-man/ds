@@ -1,5 +1,5 @@
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -31,9 +31,9 @@ public class RobotMovement {
     @Test
     public void testFindLoop() {
         String[] command = {"N", "N", "W", "S", "E", "N"};
-        Assert.assertFalse(robotComesToStartOrLoop(command));
+        Assertions.assertFalse(robotComesToStartOrLoop(command));
         command = new String[]{"N", "N", "W", "S", "E", "S"};
-        Assert.assertTrue(robotComesToStartOrLoop(command));
+        Assertions.assertTrue(robotComesToStartOrLoop(command));
     }
 
 
@@ -75,9 +75,9 @@ public class RobotMovement {
     @Test
     public void testFindPathCrosses() {
         String[] command = {"N", "N", "W", "S", "E", "N"};
-        Assert.assertTrue(robotCrossesPath(command));
+        Assertions.assertTrue(robotCrossesPath(command));
         command = new String[]{"N", "N", "W", "S"};
-        Assert.assertFalse(robotComesToStartOrLoop(command));
+        Assertions.assertFalse(robotComesToStartOrLoop(command));
     }
 
 }

@@ -1,6 +1,6 @@
-package org.utils;
+package xorg.utils;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -16,7 +16,8 @@ public class DirectoryUtils {
     public static final String MANI_TMP = "C:\\mani\\tmp\\";
 
     private static List<File> listFileFilter(File srcDir, FileFilter filter) {
-        if (!srcDir.isDirectory()) throw new IllegalArgumentException("Given path is not a directory : " + srcDir.getAbsolutePath());
+        if (!srcDir.isDirectory())
+            throw new IllegalArgumentException("Given path is not a directory : " + srcDir.getAbsolutePath());
         File[] files = srcDir.listFiles(filter);
         return Arrays.asList(files);
     }
@@ -79,7 +80,7 @@ public class DirectoryUtils {
     @Test
     public void testListAllFiles() {
         List<File> files = listAllFiles(new File(MANI_TMP));
-        System.out.println("Total no. of files = "+ files.size());
+        System.out.println("Total no. of files = " + files.size());
         files.forEach(System.out::println);
     }
 

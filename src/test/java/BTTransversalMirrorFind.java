@@ -1,5 +1,5 @@
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  *       1         |         1
@@ -31,11 +31,15 @@ public class BTTransversalMirrorFind {
                         new BTNode(15, null, null))
         );
         System.out.println(root);
-        printPreorder(root); System.out.println("PreOrder: ");
-        printPostorder(root); System.out.println("PostOrder also called Bottom's UP: ");
-        printInorder(root); System.out.println("InOrder: ");
+        printPreorder(root);
+        System.out.println("PreOrder: ");
+        printPostorder(root);
+        System.out.println("PostOrder also called Bottom's UP: ");
+        printInorder(root);
+        System.out.println("InOrder: ");
         BTNode mirror = mirror(root);
-        printInorder(root); System.out.println("After mirror InOrder: ");
+        printInorder(root);
+        System.out.println("After mirror InOrder: ");
     }
 
     void printPostorder(BTNode node) {
@@ -77,8 +81,8 @@ public class BTTransversalMirrorFind {
                         new BTNode(9, null, null),
                         new BTNode(6, null, null))
         );
-        Assert.assertEquals(findCount(root, 6, 0), 3);
-        Assert.assertEquals(findCount(root, 12, 0), 0);
+        Assertions.assertEquals(findCount(root, 6, 0), 3);
+        Assertions.assertEquals(findCount(root, 12, 0), 0);
     }
 
 

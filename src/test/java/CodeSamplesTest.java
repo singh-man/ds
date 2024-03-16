@@ -1,10 +1,10 @@
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.utils.FileUtils;
-import org.utils.timer.StopWatch;
-import org.utils.timer.TimeTaken;
-import org.utils.timer.TimeTakenHelper;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import xorg.utils.FileUtils;
+import xorg.utils.timer.StopWatch;
+import xorg.utils.timer.TimeTaken;
+import xorg.utils.timer.TimeTakenHelper;
 
 import java.io.*;
 import java.util.*;
@@ -14,8 +14,8 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CodeSamplesTest {
 
@@ -23,13 +23,12 @@ public class CodeSamplesTest {
     private Map charMapInString;
     private CodeSamples cs;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         cs = new CodeSamples();
 
         testString = "abtc^^abc11451$rt$a^";
         charMapInString = new TreeMap();
-
     }
 
     /**
@@ -182,14 +181,14 @@ public class CodeSamplesTest {
 
             @Override
             public void calculateTimeTaken() {
-                Assert.assertEquals(reverseStringUseStack, cs.reverseStringUsingArray(orig));
+                Assertions.assertEquals(reverseStringUseStack, cs.reverseStringUsingArray(orig));
             }
         });
         TimeTakenHelper.calculateTime("Time by Swaping way", new TimeTaken() {
 
             @Override
             public void calculateTimeTaken() {
-                Assert.assertEquals(reverseStringUseStack, cs.reverseStringBySwaping(orig));
+                Assertions.assertEquals(reverseStringUseStack, cs.reverseStringBySwaping(orig));
             }
         });
     }
@@ -250,8 +249,8 @@ public class CodeSamplesTest {
 
     @Test
     public void rotatedString() {
-        Assert.assertTrue(new CodeSamples().rotatedString("Manish", "nishMa"));
-        Assert.assertFalse(new CodeSamples().rotatedString("Manish", "nishma"));
+        Assertions.assertTrue(new CodeSamples().rotatedString("Manish", "nishMa"));
+        Assertions.assertFalse(new CodeSamples().rotatedString("Manish", "nishma"));
     }
 
 
