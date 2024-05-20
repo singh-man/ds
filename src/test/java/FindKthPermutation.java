@@ -47,7 +47,10 @@ public class FindKthPermutation {
         int kth = 3;
         List<String> list = new ArrayList<>();
         permute(text, 0, text.length() - 1, list);
-        List<Integer> collect = list.stream().map(e -> Integer.parseInt(e)).sorted().collect(Collectors.toList());
+        List<Integer> collect = list.stream()
+                .map(e -> Integer.parseInt(e))
+                .sorted()
+                .collect(Collectors.toList());
         Assertions.assertTrue(517 == collect.get(kth - 1));
         System.out.println("kth permutation is :: " + collect.get(kth - 1));
     }
