@@ -10,12 +10,11 @@ public class LongestSubStringK_Distinct {
     public int lengthOfLongestSubstringKDistinct(String s, int k) {
         // Map to store the frequency of each character in the current window
         Map<Character, Integer> charCountMap = new HashMap<>();
-        int n = s.length();
         int longestSubstringLength = 0; // variable to store the length of the longest substring
         int left = 0; // left pointer for the sliding window
 
         // Iterate through the string using the right pointer of the sliding window
-        for (int right = 0; right < n; ++right) {
+        for (int right = 0; right < s.length(); ++right) {
             // Step 1: Update the count of the current character
             char currentChar = s.charAt(right);
             charCountMap.put(currentChar, charCountMap.getOrDefault(currentChar, 0) + 1);
