@@ -1,5 +1,6 @@
 package dp;
 
+import java.util.Objects;
 import java.util.Optional;
 
 public class ChainOfResp_2 {
@@ -7,14 +8,16 @@ public class ChainOfResp_2 {
     @FunctionalInterface
     interface Handler {
         Optional<String> handle(String request);
-    }
 
-    // Extension method to connect handlers
-    Handler andThen(Handler next) {
-        return request -> {
-            Optional<String> result = this.handle(request);
-            return result.isPresent() ? result : next.handle(request);
-        };
+        // Extension method to connect handlers
+        default Handler andThen(Handler next) {
+            Objects.requireNonNull(next);
+//            return x -> next.handle(handle(x).get()); // This works as well
+            return request -> {
+                Optional<String> result = this.handle(request);
+                return result.isPresent() ? result : next.handle(request);
+            };
+        }
     }
 
     public static void main(String[] args) {
