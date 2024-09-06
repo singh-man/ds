@@ -1,6 +1,6 @@
 package dp;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class UtilsTest {
 
@@ -50,8 +50,8 @@ public class UtilsTest {
 
     @Test
     public void testSumOfPrimes_negativeValues() {
-        assertThrows("Test of the minimum integer value.", IllegalArgumentException.class, () -> Utils.sumOfPrimes(Integer.MIN_VALUE));
-        assertThrows("Test for negative value.", IllegalArgumentException.class, () -> Utils.sumOfPrimes(-1));
+        assertThrows(IllegalArgumentException.class, () -> Utils.sumOfPrimes(Integer.MIN_VALUE), "Test of the minimum integer value.");
+        assertThrows(IllegalArgumentException.class, () -> Utils.sumOfPrimes(-1), "Test for negative value.");
     }
 
     @Test
@@ -107,8 +107,8 @@ public class UtilsTest {
         } catch (NoSuchMethodException e) {
             // Do nothing, methodFound will be false
         }
-        assertNotNull("Method \"sumOfPrimes\" has incorrect signature", method);
-        assertEquals("Incorrect return type of method \"sumOfPrimes\"", Long.TYPE, method.getReturnType());
+        assertNotNull("Method \"sumOfPrimes\" has incorrect signature", String.valueOf(method));
+        assertEquals(Long.TYPE, method.getReturnType(), "Incorrect return type of method \"sumOfPrimes\"");
     }
 
     @Test
@@ -119,8 +119,8 @@ public class UtilsTest {
         } catch (NoSuchMethodException e) {
             // Do nothing, methodFound will be false
         }
-        assertNotNull("Method \"convertToTitleCase\" has incorrect signature", method);
-        assertEquals("Incorrect return type of method \"convertToTitleCase\"", String.class, method.getReturnType());
+        assertNotNull("Method \"convertToTitleCase\" has incorrect signature", String.valueOf(method));
+        assertEquals(String.class, method.getReturnType(), "Incorrect return type of method \"convertToTitleCase\"");
     }
 
     @Test
@@ -170,6 +170,6 @@ public class UtilsTest {
             expectedSet.add(new HashSet<>(group));
         }
 
-        assertEquals(testMessage + "The grouped anagrams do not match the expected result", expectedSet, actualSet);
+        assertEquals(expectedSet, actualSet, testMessage + "The grouped anagrams do not match the expected result");
     }
 }
