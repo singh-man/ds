@@ -78495,4 +78495,4 @@
 78495. 999961
 78496. 999979
 78497. 999983
-Total primes: 78497 time taken: 475
+Total primes: 78497 time taken: 713
