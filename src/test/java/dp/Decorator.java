@@ -21,8 +21,24 @@ public class Decorator {
         Assertions.assertEquals("me 1 2 3", reduce.get().apply("me"));
     }
 
+    private Function<String, String> chainAll(Function<String, String>... func) {
+        return Stream.of(func)
+                .reduce((f1, f2) -> f1.andThen(f2)).get();
+    }
+
     @Test
     public void test2() {
+        Function<String, String> decorate_1 = s -> s + " 1";
+        Function<String, String> decorate_2 = s -> s + " 2";
+        Function<String, String> decorate_3 = s -> s + " 3";
+
+        Function<String, String> decorated = chainAll(decorate_1, decorate_2, decorate_3);
+
+        Assertions.assertEquals("me 1 2 3", decorated.apply("me"));
+    }
+
+    @Test
+    public void test3() {
         Function<String, String> decorate_1 = s -> s + " 1";
         Function<String, String> decorate_2 = s -> s + " 2";
         Function<String, String> decorate_3 = s -> s + " 3";
