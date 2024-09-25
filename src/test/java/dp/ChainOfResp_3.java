@@ -21,10 +21,6 @@ public class ChainOfResp_3 {
 
     private LogHandler logChain;
 
-    public void log(Level level, String message) {
-        logChain.handle(level, message);
-    }
-
     @Test
     public void test() {
         // Chain of Responsibility setup using lambdas
@@ -53,9 +49,9 @@ public class ChainOfResp_3 {
 
         Logger logger = Logger.getLogger(this.getClass().getName());
         // Let's test different scenarios:
-        logger.log(Level.INFO, "This is an informational message.");
-        logger.log(Level.FINE, "This is a fine/ebug message, something minor.");
-        logger.log(Level.SEVERE, "This is an severe/error message, something failed.");
+        logChain.handle(Level.INFO, "This is an informational message.");
+        logChain.handle(Level.FINE, "This is a fine/ebug message, something minor.");
+        logChain.handle(Level.SEVERE, "This is an severe/error message, something failed.");
     }
 }
 
