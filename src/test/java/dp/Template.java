@@ -18,7 +18,7 @@ public class Template {
         withResource(resource -> resource.employResource());
     }
 
-    class Resource {
+    static class Resource {
         public Resource() {
             System.out.println("Resource created");
         }
