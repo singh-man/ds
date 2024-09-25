@@ -9,7 +9,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.function.Function;
 
-public class FP {
+public class Visitor {
 
     public static class LambdaVisitor<A> implements Function<Object, A> {
         private Map<Class<?>, Function<Object, A>> fMap = new HashMap<>();
