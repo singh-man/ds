@@ -1,10 +1,13 @@
 package dp;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Random;
 import java.util.function.Consumer;
 
 public class Template {
-    public static void withResource(Consumer<Resource> consumer) {
+
+    private void withResource(Consumer<Resource> consumer) {
         Resource resource = new Resource();
         try {
             consumer.accept(resource);
@@ -13,12 +16,13 @@ public class Template {
         }
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         withResource(resource -> resource.useResource());
         withResource(resource -> resource.employResource());
     }
 
-    static class Resource {
+    private static class Resource {
         public Resource() {
             System.out.println("Resource created");
         }
