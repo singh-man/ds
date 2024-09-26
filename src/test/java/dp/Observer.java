@@ -1,11 +1,14 @@
 package dp;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 
 public class Observer {
-    public static class Observable {
+
+    private static class Observable {
         private final Map<Object, Consumer<Object>> listeners = new ConcurrentHashMap<>();
 
         public void register(Object key, Consumer<Object> listener) {
@@ -21,7 +24,8 @@ public class Observer {
         }
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         Observable observable = new Observable();
         observable.register("key1", System.out::println);
         observable.register("key2", System.out::println);
