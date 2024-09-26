@@ -21,6 +21,9 @@ public class ChainOfResp_3 {
 
     private LogHandler logChain;
 
+    /**
+     * This chain of responsibility is not intuitive and its better to avoid it!!
+     */
     @Test
     public void test() {
         // Chain of Responsibility setup using lambdas
