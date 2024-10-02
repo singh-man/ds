@@ -22,7 +22,7 @@ public class ChainOfResp_3 {
     private LogHandler logChain;
 
     /**
-     * This chain of responsibility is not intuitive and its better to avoid it!!
+     * This chain of responsibility is not intuitive and it's better to avoid it!!
      */
     @Test
     public void test() {
