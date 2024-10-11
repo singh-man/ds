@@ -49,7 +49,7 @@ public class ChainOfResp_and_Decorator_Mix {
         A modifiable = new A();
         modifiable.bal = 0;
         modifiable.requested = 705;
-        List<A> listToBeIgnored = Stream.of(note100, getNote50(), getNote20(), getNote10(), getNote5())
+        List<A> ignorableListInThisCase = Stream.of(note100, getNote50(), getNote20(), getNote10(), getNote5())
                 .filter(ff -> modifiable.bal < modifiable.requested)
                 .map(ff -> ff.apply(modifiable))
                 .toList(); // Pure COR will have findFirst() i.e. map modifies the value and collected list is ignored. Note: list contains n references of same object!!
