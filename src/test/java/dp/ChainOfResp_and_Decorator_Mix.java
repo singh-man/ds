@@ -1,10 +1,13 @@
 package dp;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Each note calculator function (COR) if it can process will process and then sends to next function (decorator)
@@ -29,7 +32,7 @@ public class ChainOfResp_and_Decorator_Mix {
 
         A process(A t);
 
-//        default A toProcede(A t) {
+//        default A toProceed(A t) {
 //            if(t.x < t.reach) return t;
 //        }
     }
@@ -50,6 +53,15 @@ public class ChainOfResp_and_Decorator_Mix {
                 .filter(ff -> modifiable.bal < modifiable.requested)
                 .map(ff -> ff.apply(modifiable))
                 .toList(); // Pure COR will have findFirst() i.e. map modifies the value and collected list is ignored. Note: list contains n references of same object!!
+        assertEquals(modifiable.n100, 7);
+        assertEquals(modifiable.n50, 0);
+        assertEquals(modifiable.n20, 0);
+        assertEquals(modifiable.n10, 0);
+        assertEquals(modifiable.n5, 1);
+        print(modifiable);
+    }
+
+    private static void print(A modifiable) {
         System.out.println(String.format("Amt=%d, %d notes of 100; %d notes of 50; %d notes of 20; %d notes of 10; %d notes of 5",
                 modifiable.requested, modifiable.n100, modifiable.n50, modifiable.n20, modifiable.n10, modifiable.n5));
     }
@@ -72,8 +84,12 @@ public class ChainOfResp_and_Decorator_Mix {
                 .andThen(getNote10())
                 .andThen(getNote5())
                 .apply(modifiable);
-        System.out.println(String.format("Amt=%d, %d notes of 100; %d notes of 50; %d notes of 20; %d notes of 10; %d notes of 5",
-                modifiable.requested, modifiable.n100, modifiable.n50, modifiable.n20, modifiable.n10, modifiable.n5));
+        assertEquals(modifiable.n100, 5);
+        assertEquals(modifiable.n50, 0);
+        assertEquals(modifiable.n20, 0);
+        assertEquals(modifiable.n10, 0);
+        assertEquals(modifiable.n5, 0);
+        print(modifiable);
     }
 
     private static NoteCalculator getNote5() {
