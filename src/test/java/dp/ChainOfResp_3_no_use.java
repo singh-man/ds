@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ChainOfResp_3 {
+public class ChainOfResp_3_no_use {
 
     @FunctionalInterface
     interface LogHandler {
@@ -21,9 +21,6 @@ public class ChainOfResp_3 {
 
     private LogHandler logChain;
 
-    /**
-     * This chain of responsibility is not intuitive and it's better to avoid it!!
-     */
     @Test
     public void test() {
         // Chain of Responsibility setup using lambdas
