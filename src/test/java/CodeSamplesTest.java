@@ -125,11 +125,11 @@ public class CodeSamplesTest {
             }
             start++;
         }
-        pw.println("Total primes: " + noOfPrimes + " time taken: " + (System.currentTimeMillis() - t1));
-        pw.flush();
-        System.out.println("Check output in file: " + file.getAbsolutePath());
-        BufferedReader br = new BufferedReader(new FileReader(file));
-        System.out.println(br.readLine());
+//        pw.println("Total primes: " + noOfPrimes + " time taken: " + (System.currentTimeMillis() - t1));
+//        pw.flush();
+//        System.out.println("Check output in file: " + file.getAbsolutePath());
+//        BufferedReader br = new BufferedReader(new FileReader(file));
+//        System.out.println("Enter text here: " + br.readLine());
     }
 
     @Test

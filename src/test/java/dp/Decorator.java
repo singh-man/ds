@@ -4,13 +4,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
 public class Decorator {
 
     @Test
-    public void test1() {
+    public void pureFunction_newObjectOnEveryOperation_1() {
         Function<String, String> decorate_1 = s -> s + " 1";
         Function<String, String> decorate_2 = s -> s + " 2";
         Function<String, String> decorate_3 = s -> s + " 3";
@@ -27,7 +28,7 @@ public class Decorator {
     }
 
     @Test
-    public void test2() {
+    public void pureFunction_newObjectOnEveryOperation_2() {
         Function<String, String> decorate_1 = s -> s + " 1";
         Function<String, String> decorate_2 = s -> s + " 2";
         Function<String, String> decorate_3 = s -> s + " 3";
@@ -38,7 +39,7 @@ public class Decorator {
     }
 
     @Test
-    public void test3() {
+    public void pureFunction_newObjectOnEveryOperation_3() {
         Function<String, String> decorate_1 = s -> s + " 1";
         Function<String, String> decorate_2 = s -> s + " 2";
         Function<String, String> decorate_3 = s -> s + " 3";
@@ -48,4 +49,26 @@ public class Decorator {
         Assertions.assertEquals("me 1 2 3", decorated.apply("me"));
     }
 
+    @Test
+    public void impureFunction_Consumer_mutableObject_objModifiedInEachOperation() {
+        class A {
+            A(String s) {
+                this.s = s;
+            }
+            String s;
+        }
+
+        Consumer<A> dec1 = a -> a.s += " Hello";
+        Consumer<A> dec2 = a -> a.s += " World";
+        Consumer<A> dec3 = a -> a.s += " More";
+
+        Consumer<A> finalDec = dec1.andThen(dec2).andThen(dec3);
+
+        A test = new A("Test"); // Object will be modified by decorator chaining
+        System.out.println("Before decorator = " + test.s);
+        Assertions.assertEquals("Test", test.s);
+        finalDec.accept(test); // Consumer returns void
+        System.out.println("After decorator = " + test.s);
+        Assertions.assertEquals("Test Hello World More", test.s);
+    }
 }
