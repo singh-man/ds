@@ -3,12 +3,27 @@ package dp;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
 public class Decorator {
+
+    @Test
+    public void pureFunction_newObjectOnEveryOperation_0() {
+        Function<String, String> decorate_1 = s -> s + " 1";
+        Function<String, String> decorate_2 = s -> s + " 2";
+        Function<String, String> decorate_3 = s -> s + " 3";
+
+        Function<String, String> finalFunc = e -> e; //or Function.identity();
+
+        for (var f : List.of(decorate_1, decorate_2, decorate_3)) {
+            finalFunc = finalFunc.andThen(f);
+        }
+        Assertions.assertEquals("me 1 2 3", finalFunc.apply("me"));
+    }
 
     @Test
     public void pureFunction_newObjectOnEveryOperation_1() {
