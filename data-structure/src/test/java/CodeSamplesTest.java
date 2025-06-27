@@ -60,15 +60,16 @@ public class CodeSamplesTest {
                 this.name = name;
             }
         }
-        List<Employee> employeeList = List.of(new Employee(18, "man"),
-                new Employee(10, "man"),
-                new Employee(11, "man1"),
-                new Employee(12, "man2"),
-                new Employee(14, "man3"),
-                new Employee(10, "man"),
-                new Employee(10, "man5"));
+        List<Employee> employeeList = new ArrayList<>();
+        employeeList.add(new Employee(18, "man"));
+        employeeList.add(new Employee(10, "man"));
+        employeeList.add(new Employee(11, "man1"));
+        employeeList.add(new Employee(12, "man2"));
+        employeeList.add(new Employee(14, "man3"));
+        employeeList.add(new Employee(10, "man"));
+        employeeList.add(new Employee(10, "man5"));
 
-        Collections.sort(employeeList, (o1, o2) -> {
+        employeeList.sort((o1, o2) -> {
 
             String s1 = o1.name;
             String s2 = o2.name;
@@ -141,7 +142,7 @@ public class CodeSamplesTest {
     public void testListPrimeNumbersInRange() throws IOException {
         final List<Integer> primesList = new LinkedList<>();
         int i = 1;
-        int end = Integer.MAX_VALUE - 1000;
+        int end = Integer.MAX_VALUE / 10000;
         while (i <= end) {
             if (cs.isPrimeNumber(i)) {
                 primesList.add(i);
@@ -166,7 +167,7 @@ public class CodeSamplesTest {
     @Test
     public void testReverseString() {
         final String orig = FileUtils.readFile(
-                        new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toString() + "java/org/string.text"))
+                        new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toString() + "string.text"))
                 .stream().reduce(String::concat).get();
         final String reverseStringUseStack = cs.reverseStringUseStack(orig);
         System.out.println(reverseStringUseStack);
