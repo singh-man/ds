@@ -1,6 +1,6 @@
 ## DS questions
 
-As the questions come I have solved.
+As the questions come; I solve.
 
 
 ### Tips
