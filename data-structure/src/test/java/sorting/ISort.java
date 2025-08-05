@@ -58,5 +58,4 @@ public interface ISort {
         }
         return true;
     }
-
 }
