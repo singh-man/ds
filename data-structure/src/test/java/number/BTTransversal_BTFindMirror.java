@@ -1,3 +1,5 @@
+package number;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -6,9 +8,30 @@ import org.junit.jupiter.api.Test;
  *   3       10    |    10       3
  * 6  5    9  15   |  15  9    5  6
  */
-public class BTTransversalMirrorFind {
+public class BTTransversal_BTFindMirror {
 
-    BTNode mirror(BTNode node) {
+    private void printPostorder(BTNode node) {
+        if (node == null) return;
+        printPostorder(node.left);
+        printPostorder(node.right);
+        System.out.print(node.data + " ");
+    }
+
+    private  void printInorder(BTNode node) {
+        if (node == null) return;
+        printInorder(node.left);
+        System.out.print(node.data + " ");
+        printInorder(node.right);
+    }
+
+    private void printPreorder(BTNode node) {
+        if (node == null) return;
+        System.out.print(node.data + " ");
+        printPreorder(node.left);
+        printPreorder(node.right);
+    }
+
+    private BTNode mirror(BTNode node) {
         if (node == null) return node;
 
         BTNode left = mirror(node.left);
@@ -42,28 +65,7 @@ public class BTTransversalMirrorFind {
         System.out.println("After mirror InOrder: ");
     }
 
-    void printPostorder(BTNode node) {
-        if (node == null) return;
-        printPostorder(node.left);
-        printPostorder(node.right);
-        System.out.print(node.data + " ");
-    }
-
-    void printInorder(BTNode node) {
-        if (node == null) return;
-        printInorder(node.left);
-        System.out.print(node.data + " ");
-        printInorder(node.right);
-    }
-
-    void printPreorder(BTNode node) {
-        if (node == null) return;
-        System.out.print(node.data + " ");
-        printPreorder(node.left);
-        printPreorder(node.right);
-    }
-
-    int findCount(BTNode node, int find, int count) {
+    private int findCount(BTNode node, int find, int count) {
         if (node == null) return count;
         if (node.data == find) count++;
         count = findCount(node.left, find, count);
@@ -84,7 +86,6 @@ public class BTTransversalMirrorFind {
         Assertions.assertEquals(findCount(root, 6, 0), 3);
         Assertions.assertEquals(findCount(root, 12, 0), 0);
     }
-
 
     public class BTNode {
         int data;

@@ -1,3 +1,5 @@
+package number;
+
 import org.junit.jupiter.api.Test;
 
 /**
@@ -9,7 +11,7 @@ public class BTMaxPathSum {
 
     private int max = Integer.MIN_VALUE;
 
-    int postOrderMaxSumPath(BTNode node) {
+    private int postOrderMaxSumPath(BTNode node) {
         if (node == null) return 0;
         int left = Math.max(postOrderMaxSumPath(node.left), 0);
         int right = Math.max(postOrderMaxSumPath(node.right), 0);

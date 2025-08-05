@@ -12,7 +12,7 @@ public interface ISort {
 
     int[] data = new int[]{0, 5, 6, 3, 7, 0, 3, 7, 8, 9, 2, 5};
 
-    void sort(int[] data) throws Exception;
+    default void sort(int[] data) throws Exception{};
 
     default <T extends Comparable> T[] sort(T[] data) throws Exception {
         return data;

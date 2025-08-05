@@ -1,50 +1,22 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import xorg.utils.FileUtils;
-import xorg.utils.timer.StopWatch;
-import xorg.utils.timer.TimeTaken;
-import xorg.utils.timer.TimeTakenHelper;
 
-import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 public class CodeSamplesTest {
 
-    private String testString;
-    private Map charMapInString;
     private CodeSamples cs;
 
     @BeforeEach
     public void setUp() throws Exception {
         cs = new CodeSamples();
-
-        testString = "abtc^^abc11451$rt$a^";
-        charMapInString = new TreeMap();
-    }
-
-    /**
-     * Sample output for the given Test String
-     * $:2,1:3,4:1,5:1,^:3,a:3,b:2,c:2,r:1,t:2
-     */
-    @Test
-    public void testCharMapInAString() {
-        System.out.println("\nCharacter mapping/count in a String");
-        cs.charMapInAString(charMapInString, testString);
-        System.out.println("char : count ==> no of char? " + charMapInString.size());
-        Iterator it = charMapInString.keySet().iterator();
-        while (it.hasNext()) {
-            Object key = it.next();
-            System.out.println(key + "    : " + charMapInString.get(key));
-        }
     }
 
     @Test
@@ -89,111 +61,6 @@ public class CodeSamplesTest {
         }
     }
 
-    @Test
-    public void testIsPrime() {
-
-        StopWatch sw = new StopWatch().start();
-
-        assertTrue(cs.isPrimeNumber(32416190071l));
-        sw.log("Time : ");
-        assertTrue(cs.isPrimeNumber(9999973));
-        sw.log("Time : ");
-        assertFalse(cs.isPrimeNumber(999963));
-        sw.log("Time : ");
-        assertTrue(cs.isPrimeNumber(15486101));
-        sw.log("Time : ");
-        sw.printConsole();
-    }
-
-    @Test
-    /**
-     * Integer.MAX_VALUE = 2147483647
-     *
-     * @throws IOException
-     */
-    public void testListPrimeNumbersInRangeToAFile() throws IOException {
-        int noOfPrimes = 0;
-        long start = 1;
-        long end = 1000000L;
-        long t1 = System.currentTimeMillis();
-        File file = new File("primeNumberList.txt");
-        file.createNewFile();
-        PrintWriter pw = new PrintWriter(file);
-        while (start <= end) {
-            if (cs.isPrimeNumber(start)) {
-                noOfPrimes++;
-                pw.println(noOfPrimes + ". " + start);
-            }
-            start++;
-        }
-//        pw.println("Total primes: " + noOfPrimes + " time taken: " + (System.currentTimeMillis() - t1));
-//        pw.flush();
-//        System.out.println("Check output in file: " + file.getAbsolutePath());
-//        BufferedReader br = new BufferedReader(new FileReader(file));
-//        System.out.println("Enter text here: " + br.readLine());
-    }
-
-    @Test
-    /**
-     * Integer.MAX_VALUE = 2147483647
-     *
-     * @throws IOException
-     */
-    public void testListPrimeNumbersInRange() throws IOException {
-        final List<Integer> primesList = new LinkedList<>();
-        int i = 1;
-        int end = Integer.MAX_VALUE / 10000;
-        while (i <= end) {
-            if (cs.isPrimeNumber(i)) {
-                primesList.add(i);
-            }
-            i++;
-        }
-        System.out.println("No. of primes found = " + primesList.size());
-    }
-
-    @Test
-    public void testCalculatePrimeNumbers_v1() throws IOException {
-        TimeTakenHelper.calculateTime("Time Taken", new TimeTaken() {
-            @Override
-            public void calculateTimeTaken() {
-                List<Integer> primesList = cs.calculatePrimeNumbers_v1(21);
-                System.out.println("No. of primes found = " + primesList.size());
-            }
-        });
-
-    }
-
-    @Test
-    public void testReverseString() {
-        final String orig = FileUtils.readFile(
-                        new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toString() + "string.text"))
-                .stream().reduce(String::concat).get();
-        final String reverseStringUseStack = cs.reverseStringUseStack(orig);
-        System.out.println(reverseStringUseStack);
-        TimeTakenHelper.calculateTime("Time by Stack way", new TimeTaken() {
-
-            @Override
-            public void calculateTimeTaken() {
-                cs.reverseStringUseStack(orig);
-            }
-        });
-        TimeTakenHelper.calculateTime("Time by reverse array way", new TimeTaken() {
-
-            @Override
-            public void calculateTimeTaken() {
-                Assertions.assertEquals(reverseStringUseStack, cs.reverseStringUsingArray(orig));
-            }
-        });
-        TimeTakenHelper.calculateTime("Time by Swaping way", new TimeTaken() {
-
-            @Override
-            public void calculateTimeTaken() {
-                Assertions.assertEquals(reverseStringUseStack, cs.reverseStringBySwaping(orig));
-            }
-        });
-    }
-
     interface Searchable {
         boolean test(String car);
     }
@@ -235,25 +102,6 @@ public class CodeSamplesTest {
 
         Stream.generate(() -> Arrays.asList(1, 2, 3, 4)).limit(5).forEach(System.out::println);
     }
-
-    @Test
-    public void fibonacci() {
-        Function<Integer, Integer> f = new Function<Integer, Integer>() {
-            @Override
-            public Integer apply(Integer n) {
-                if (n < 2) return n;
-                return apply(n - 1) + apply(n - 2);
-            }
-        };
-        System.out.println(f.apply(10));
-    }
-
-    @Test
-    public void rotatedString() {
-        Assertions.assertTrue(new CodeSamples().rotatedString("Manish", "nishMa"));
-        Assertions.assertFalse(new CodeSamples().rotatedString("Manish", "nishma"));
-    }
-
 
 //	@Test
 //	public void testEricssonMail() {
