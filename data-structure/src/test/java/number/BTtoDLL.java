@@ -1,3 +1,5 @@
+package number;
+
 import org.junit.jupiter.api.Test;
 
 public class BTtoDLL {
@@ -10,7 +12,7 @@ public class BTtoDLL {
     // calls
     static BTNode prev = null;
 
-    void BinaryTree2DoubleLinkedList(BTNode root) {
+    private void BinaryTree2DoubleLinkedList(BTNode root) {
 
         // Base case
         if (root == null) return;
@@ -32,7 +34,7 @@ public class BTtoDLL {
     }
 
     /* Function to print nodes in a given doubly linked list */
-    void printList(BTNode node) {
+    private void printList(BTNode node) {
         if (node == null) return;
         System.out.print(node.data + " ");
 //        printList(node.left);
@@ -55,7 +57,6 @@ public class BTtoDLL {
 
         // Print the converted List
         printList(root);
-
     }
 
     public class BTNode {

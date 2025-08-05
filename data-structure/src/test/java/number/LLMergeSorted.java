@@ -1,3 +1,5 @@
+package number;
+
 import org.junit.jupiter.api.Test;
 
 public class LLMergeSorted {
@@ -29,8 +31,7 @@ public class LLMergeSorted {
         Node previous;
 
         public Node(int data, Node next) {
-            this.data = data;
-            this.next = next;
+            this(data, next, null);
         }
 
         public Node(int data, Node next, Node previous) {

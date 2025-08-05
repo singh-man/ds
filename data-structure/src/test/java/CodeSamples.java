@@ -48,20 +48,6 @@ public class CodeSamples {
     }
 
     /**
-     * To get the count of each type of character in a String
-     */
-    public void charMapInAString(Map map, String testString) {
-        for (int i = 0; i < testString.length(); i++) {
-            char key = testString.charAt(i);
-            if (map.containsKey(key)) {
-                map.put(key, Integer.parseInt(map.get(key).toString()) + 1);
-            } else {
-                map.put(key, 1);
-            }
-        }
-    }
-
-    /**
      * @param chessBoard
      * @return
      */
@@ -89,125 +75,6 @@ public class CodeSamples {
         for (String s : keySet) {
             System.out.println(s + ":" + map.get(s));
         }
-    }
-
-    /**
-     * Checks whether the passed number is prime
-     * <p>
-     * Logic: based on limiting value for e.g. take 101 1. Start dividing the
-     * number from 2 till the number 2. 101/2 = 50 --> check this 2, 50 are the
-     * multiples of the number that means 3. next divisor range will be b/w 3
-     * and 50 4. 101/3 = 33 --> signifies next divisor will be b/w 4 and 33
-     * <p>
-     * narrowing is done in this way
-     * <p>
-     * Note: The logic depicts that the highest multiple a number can have, is
-     * its sqrt(number) or the highest number which can divide a given number is
-     * its sqrt(number)
-     * <p>
-     * So the number of iteration will be = Math.ceil(Math.sqrt(number)) if used
-     * this mathematical formula; limitingValue check and calculation(is done to
-     * make it more generic) is not required
-     */
-    public boolean isPrimeNumber(long number) {
-        long limitingValue = number; // limitingValue plays a very significant role here
-        for (long i = 2; i <= limitingValue; i++) {
-            if (number % i == 0) {
-                return false;
-            } else if (i == (limitingValue - 1) || i == limitingValue || i == limitingValue + 1) {
-                return true;
-            }
-            limitingValue = number / i;
-            if (i == limitingValue) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Limited by max Integer value and also if i * j reaches max integer
-     *
-     * @param n
-     * @return
-     */
-    @Deprecated
-    public List<Integer> calculatePrimeNumbers_v1(int n) {
-        boolean[] isPrimeNumber = new boolean[n + 1]; // boolean defaults to false
-        List<Integer> primes = new ArrayList<>();
-        for (int i = 2; i < n; i++) {
-            isPrimeNumber[i] = true;
-        }
-        for (int i = 2; i < n; i++) {
-            if (isPrimeNumber[i]) {
-                primes.add(i);
-                // Now mark the multiple of i as non-prime number
-                for (int j = i; j * i <= n; j++) {
-                    isPrimeNumber[i * j] = false;
-                }
-            }
-
-        }
-        return primes;
-    }
-
-    public String reverseStringUseStack(String s) {
-        Stack st = new Stack();
-        char[] arr = s.toCharArray();
-        for (int i = 0; i < arr.length; i++) {
-            st.push(arr[i]);
-        }
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < arr.length; i++) {
-            sb.append(st.pop());
-        }
-        return sb.toString();
-    }
-
-    public String reverseStringUsingArray(String s) {
-        char[] arr = s.toCharArray();
-        int sLen = arr.length;
-        char[] revArr = new char[sLen];
-        for (int i = sLen - 1, j = 0; i >= 0; i--, j++) {
-            revArr[j] = arr[i];
-        }
-        return new String(revArr);
-    }
-
-    public String reverseStringBySwaping(String s) {
-        char[] arr = s.toCharArray();
-        int sLen = arr.length;
-        for (int i = 0, j = sLen - 1; i < sLen / 2; i++, j--) {
-            char temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-        }
-        return new String(arr);
-    }
-
-    public boolean rotatedString(String orig, String rot) {
-        if ((orig + orig).contains(rot)) return true;
-        return false;
-    }
-
-    public String generateRandomStrings() {
-        int leftLimit = 97; // letter 'a'
-        int rightLimit = 122; // letter 'z'
-        int targetStringLength = 70;
-        Random random = new Random();
-        StringBuilder buffer = new StringBuilder(targetStringLength);
-        for (int i = 0; i < targetStringLength; i++) {
-            int randomLimitedInt = leftLimit + (int)
-                    (random.nextFloat() * (rightLimit - leftLimit + 1));
-            buffer.append((char) randomLimitedInt);
-        }
-        return buffer.toString();
-    }
-
-    @Test
-    public void testGenerateRandomStrings() {
-        String generatedString = generateRandomStrings();
-        System.out.println(generatedString);
     }
 
     @Test
@@ -244,6 +111,4 @@ public class CodeSamples {
         // special case for middle element if n is odd
         if (n % 2 != 0) System.out.println(a[(n - 1) / 2][(n - 1) / 2]);
     }
-
-
 }
