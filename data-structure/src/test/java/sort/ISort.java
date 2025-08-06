@@ -1,4 +1,4 @@
-package sorting;
+package sort;
 
 import org.junit.jupiter.api.Assertions;
 import xorg.utils.timer.StopWatch;

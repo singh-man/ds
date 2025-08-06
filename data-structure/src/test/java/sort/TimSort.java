@@ -1,4 +1,4 @@
-package sorting;/*
+package sort;/*
  * Copyright 2009 Google Inc.  All Rights Reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *

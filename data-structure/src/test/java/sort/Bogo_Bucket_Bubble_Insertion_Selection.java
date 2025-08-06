@@ -1,4 +1,4 @@
-package sorting;
+package sort;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,7 @@ import java.util.Random;
  * Bubble Sort is the simplest sorting algorithm that works by
  * repeatedly swapping the adjacent elements if they are in wrong order.
  */
-public class Bogo_Bubble_Insertion_Selection_Sort implements ISort {
+public class Bogo_Bucket_Bubble_Insertion_Selection implements ISort {
 
     /**
      * Created by M.Singh on 07/02/2018.
@@ -33,6 +33,26 @@ public class Bogo_Bubble_Insertion_Selection_Sort implements ISort {
             }
         }
         Arrays.stream(data).forEach(System.out::println);
+    }
+
+    /**
+     * bucketSort(arr[], n)
+     * 1) Create n empty buckets (Or lists).
+     * 2) Do following for every array element arr[i].
+     * .......a) Insert arr[i] into bucket[n*array[i]]
+     * 3) Sort individual buckets using insertion sort.
+     * 4) Concatenate all sorted buckets.
+     */
+    @Test
+    public void sort() throws Exception {
+        int[] data = new int[]{0, 5, 6, 3, 7, 0, 3, 7, 8, 9, 2, 5};
+        for (int i = (data.length - 1); i >= 0; i--) {
+            for (int j = 1; j <= i; j++) {
+                if (data[j - 1] > data[j]) {
+                    swap(data, j - 1, j);
+                }
+            }
+        }
     }
 
     /**
