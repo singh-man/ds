@@ -1,7 +1,7 @@
 package sort;
 
 import org.junit.jupiter.api.Assertions;
-import xorg.utils.timer.StopWatch;
+import utils.timer.StopWatch;
 
 import java.util.Arrays;
 

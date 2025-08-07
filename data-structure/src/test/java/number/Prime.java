@@ -2,9 +2,9 @@ package number;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import xorg.utils.timer.StopWatch;
-import xorg.utils.timer.TimeTaken;
-import xorg.utils.timer.TimeTakenHelper;
+import utils.timer.StopWatch;
+import utils.timer.TimeTaken;
+import utils.timer.TimeTakenHelper;
 
 import java.io.File;
 import java.io.IOException;
@@ -50,9 +50,7 @@ public class Prime {
 
     /**
      * Limited by max Integer value and also if i * j reaches max integer
-     *
      * @param n
-     * @return
      */
     @Deprecated
     public List<Integer> calculatePrimeNumbers_v1(int n) {
@@ -76,7 +74,6 @@ public class Prime {
 
     @Test
     public void testIsPrime() {
-
         StopWatch sw = new StopWatch().start();
 
         Assertions.assertTrue(isPrimeNumber(32416190071l));
@@ -93,8 +90,6 @@ public class Prime {
     @Test
     /**
      * Integer.MAX_VALUE = 2147483647
-     *
-     * @throws IOException
      */
     public void testListPrimeNumbersInRangeToAFile() throws IOException {
         int noOfPrimes = 0;
@@ -121,7 +116,6 @@ public class Prime {
     @Test
     /**
      * Integer.MAX_VALUE = 2147483647
-     * @throws IOException
      */
     public void testListPrimeNumbersInRange() throws IOException {
         final List<Integer> primesList = new LinkedList<>();
@@ -147,5 +141,4 @@ public class Prime {
         });
 
     }
-
 }

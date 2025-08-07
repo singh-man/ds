@@ -1,4 +1,4 @@
-package xorg.utils.timer;
+package utils.timer;
 
 import java.io.IOException;
 import java.io.OutputStream;

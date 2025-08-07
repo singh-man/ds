@@ -8,6 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class SearchMinWithCount {
+
     private record Min(int value, long count) {}
 
     private Min findMin(List<Integer> clientIds, Comparator<Integer> compare) {
@@ -31,5 +32,4 @@ public class SearchMinWithCount {
         Assertions.assertEquals(min.value, -1);
         Assertions.assertEquals(min.count, 2);
     }
-
 }

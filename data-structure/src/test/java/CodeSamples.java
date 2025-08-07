@@ -1,23 +1,11 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.*;
-
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class CodeSamples {
-
-    /**
-     * Count the number of times a String is used in a given String
-     */
-    public int countStringInString(String target, String toCount) {
-        return target.split(toCount, -1).length - 1;
-    }
-
-    @Test
-    public void testCountStringInString() {
-        Assertions.assertEquals(2, countStringInString("isnotis", "is"));
-        Assertions.assertEquals(1, countStringInString("isnotis", "not"));
-    }
 
     /**
      * Note: If an array is converted to list? The list operations like clear

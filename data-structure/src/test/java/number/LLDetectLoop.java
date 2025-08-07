@@ -38,7 +38,6 @@ public class LLDetectLoop {
 
         g.next = null; // removing loop
         Assertions.assertEquals(false, cycle(a));
-
     }
 
     private class Node {
