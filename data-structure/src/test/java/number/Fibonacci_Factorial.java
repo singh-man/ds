@@ -9,7 +9,7 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.stream.IntStream;
 
-public class FibonacciAndFactorial {
+public class Fibonacci_Factorial {
 
     /**
      * n = fib(n-1) + fib(n-2)

@@ -1,4 +1,4 @@
-package xorg.utils;
+package utils;
 
 import java.io.*;
 import java.util.ArrayList;

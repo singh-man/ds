@@ -2,7 +2,7 @@ package number;
 
 import org.junit.jupiter.api.Test;
 
-public class LLMergeSorted {
+public class LL_MergeSorted_Reverse {
 
     public Node sortedMerge(Node a, Node b) {
         if (a == null) return b;
@@ -18,10 +18,29 @@ public class LLMergeSorted {
     }
 
     @Test
-    public void test() {
+    public void mergeSorted() {
         Node a = new Node(10, new Node(20, new Node(30, null)));
         Node b = new Node(11, new Node(15, new Node(31, null)));
         Node node = sortedMerge(a, b);
+        System.out.println(node);
+    }
+
+    /**
+     * 1 -> 2 -> 3 -> 4 -> 5 -> 6
+     * on 5th it passes 6 which means base case/exit criteria
+     */
+    public Node reverse(Node head) {
+        if (head == null || head.next == null) return head;
+        Node rev = reverse(head.next);
+        head.next.next = head; // on final stack 5 -> 6 -> = 5
+        head.next = null; // and 5 -> 6 to 5 -> null
+        return rev;
+    }
+
+    @Test
+    public void reverse() {
+        Node a = new Node(10, new Node(20, new Node(30, null)));
+        Node node = reverse(a);
         System.out.println(node);
     }
 

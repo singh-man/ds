@@ -5,8 +5,7 @@ import java.util.Scanner;
 /**
  * Created by M.Singh on 07/02/2018.
  */
-class BinarySearch
-{
+public class BinarySearch {
     /**
      * This method implements the Generic Binary Search
      *
@@ -17,8 +16,7 @@ class BinarySearch
      * @return the location of the key
      **/
 
-    public static <T extends Comparable<T>> int BS(T array[], T key, int lb, int ub)
-    {
+    public static <T extends Comparable<T>> int BS(T array[], T key, int lb, int ub) {
         if ( lb > ub)
             return -1;
 
@@ -35,8 +33,7 @@ class BinarySearch
     }
 
     // Driver Program
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
 
         // For INTEGER Input

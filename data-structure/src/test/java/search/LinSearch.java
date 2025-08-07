@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 
-public class LInSearch {
+public class LinSearch {
 
 	/**
 	 * The main method
