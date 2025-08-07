@@ -58,6 +58,7 @@ public class LL_DetectLoop_Reverse {
         Node node = reverse(a);
         System.out.println(node);
     }
+
     private class Node {
         int data;
         Node next;
