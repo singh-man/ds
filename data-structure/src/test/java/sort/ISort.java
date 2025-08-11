@@ -44,16 +44,16 @@ public interface ISort {
     }
 
     default boolean isSorted(int[] data) {
-        for (int i = 1; i < data.length; i++) {
-            if (data[i] < data[i - 1])
+        for (int i = 0; i < data.length - 1; i++) {
+            if (data[i] > data[i + 1])
                 return false;
         }
         return true;
     }
 
     default <T extends Comparable> boolean isSorted(T[] data) {
-        for (int i = 1; i < data.length; i++) {
-            if (data[i].compareTo(data[i - 1]) == 0)
+        for (int i = 0; i < data.length - 1; i++) {
+            if (data[i].compareTo(data[i + 1]) > 0)
                 return false;
         }
         return true;
