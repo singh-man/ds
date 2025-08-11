@@ -14,7 +14,7 @@ public class RadixSortTest implements ISort {
 
     @Override
     public void sort(int[] data) throws Exception {
-        radixsort(data, data.length);
+        radixSort(data, data.length);
     }
 
     // A utility function to get maximum value in arr[]
@@ -57,7 +57,7 @@ public class RadixSortTest implements ISort {
 
     // The main function to that sorts arr[] of size n using
     // Radix Sort
-    private void radixsort(int arr[], int n) {
+    private void radixSort(int arr[], int n) {
         // Find the maximum number to know number of digits
         int m = getMax(arr, n);
 
