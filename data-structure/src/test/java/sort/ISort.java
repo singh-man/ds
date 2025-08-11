@@ -20,14 +20,14 @@ public interface ISort {
 
     default void run(ISort sort) {
         try {
-            System.out.println(Arrays.toString(data));
+            System.out.println("Original: " + Arrays.toString(data));
 
             StopWatch sw = new StopWatch().start();
             sort.sort(data);
             sw.log(sort.getClass().getName() + " : Sorting done");
             sw.stop();
 
-            System.out.println(Arrays.toString(data));
+            System.out.println("Sorted: " + Arrays.toString(data));
 
             sw.printConsole();
 

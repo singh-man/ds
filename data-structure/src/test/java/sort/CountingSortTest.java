@@ -22,9 +22,7 @@ public class CountingSortTest implements ISort {
     public void sort(int[] data) throws Exception {
         Map<Integer, Integer> frequency = new TreeMap<>();
         for (int i : data) {
-            if (frequency.containsKey(i)) {
-                frequency.put(i, frequency.get(i) + 1);
-            } else
+            if (frequency.computeIfPresent(i, (k, v) -> v + 1) == null)
                 frequency.put(i, 1);
         }
         int j = 0;
@@ -58,7 +56,7 @@ public class CountingSortTest implements ISort {
         run(new CountingSortTest());
         Integer[] data = {0, 5, 6, 3, 7, 0, 3, 7, 8, 9, 2, 5};
         CS(data);
-        System.out.println(Arrays.toString(data));
+        System.out.println("Sorted: " + Arrays.toString(data));
         Assertions.assertTrue(isSorted(data));
     }
 }
