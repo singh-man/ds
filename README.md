@@ -1,3 +1,5 @@
+## This repo is mostly abandoned
+
 ## DS questions
 
 As the questions come; I solve.
