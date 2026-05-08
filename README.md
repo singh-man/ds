@@ -1,5 +1,7 @@
 # Abandoned Repo
 
+Not is use
+
 ## DS questions
 
 As the questions come; I solve.
